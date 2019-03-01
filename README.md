@@ -1,17 +1,15 @@
-Kademlia
+KademliaDHT
 ========
 
-This is an implementation of the Kademlia (http://en.wikipedia.org/wiki/Kademlia) routing protocol and DHT. 
+This is an implementation of the Kademlia (http://en.wikipedia.org/wiki/Kademlia) routing protocol and DHT in Java. 
 
-I wrote an article [An Introduction to Kademlia DHT & How It Works](http://gleamly.com/article/introduction-kademlia-dht-how-it-works). Have a read. 
+Joshua Kissoon wrote an article [An Introduction to Kademlia DHT & How It Works](http://gleamly.com/article/introduction-kademlia-dht-how-it-works).
 
 Kademlia original Publication: http://link.springer.com/chapter/10.1007/3-540-45748-8_5
 
-Note: This repository is a Netbeans project which you can simply download and import. 
-
 Usage
 -----
-The Implementation is meant to be self contained and very easy to setup and use. There are several tests (https://github.com/JoshuaKissoon/Kademlia/tree/master/src/kademlia/tests) which demonstrates the usage of the protocol and DHT.
+The Implementation is meant to be self contained and very easy to setup and use. There are several [tests](https://github.com/ChronosX88/KademliaDHT/tree/master/src/main/java/io/github/chronosx88/kademliadht/simulations) which demonstrates the usage of the protocol and DHT.
 
 
 **Configuration**
@@ -24,8 +22,8 @@ There is a configuration file available in the kademlia.core package which have 
 All of Kademlia's sub-components (DHT, Node, Routing Table, Server, etc) are wrapped within the Kademlia object to simplify the usage of the protocol. To create an instance, simply call:
 
 ```Java
-Kademlia kad1 = new Kademlia("OwnerName1", new NodeId("ASF45678947584567463"), 12049);
-Kademlia kad2 = new Kademlia("OwnerName2", new NodeId(), 12057);  // Random NodeId will be generated
+JKademliaNode kad1 = new JKademliaNode("OwnerName1", new KademliaId("6779878AEF92"), 12049);
+JKademliaNode kad2 = new JKademliaNode("OwnerName2", new KademliaId(), 12057);  // Random NodeId will be generated
 ```
 Param 1: The Name of the owner of this instance, can be any name.
 Param 2: A NodeId for this node
@@ -36,7 +34,7 @@ After this initialization phase, the 2 Kad instances will basically be 2 separat
 
 **Connecting Nodes**
 
-Test: https://github.com/JoshuaKissoon/Kademlia/blob/master/src/kademlia/tests/NodeConnectionTest.java
+Test: https://github.com/ChronosX88/KademliaDHT/blob/master/src/main/java/io/github/chronosx88/kademliadht/simulations/NodeConnectionTest.java
 ```Java
 kad2.bootstrap(kad1.getNode());   // Bootstrap kad2 by using kad1 as the main network node
 ```
@@ -44,7 +42,7 @@ kad2.bootstrap(kad1.getNode());   // Bootstrap kad2 by using kad1 as the main ne
 
 **Storing Content**
 
-Test: https://github.com/JoshuaKissoon/Kademlia/blob/master/src/kademlia/tests/ContentSendingTest.java
+Test: https://github.com/ChronosX88/KademliaDHT/blob/master/src/main/java/io/github/chronosx88/kademliadht/simulations/ContentSendingTest.java
 ```Java
 /* Working example at: https://github.com/JoshuaKissoon/Kademlia/blob/master/src/kademlia/tests/ContentSendingTest.java */
 DHTContentImpl c = new DHTContentImpl(kad2.getOwnerId(), "Some Data");  // Create a content
@@ -55,7 +53,7 @@ kad2.put(c);    // Put the content on the network
 
 **Retrieving Content**
 
-Test: https://github.com/JoshuaKissoon/Kademlia/blob/master/src/kademlia/tests/ContentSendingTest.java
+Test: https://github.com/ChronosX88/KademliaDHT/blob/master/src/main/java/io/github/chronosx88/kademliadht/simulations/ContentSendingTest.java
 ```Java
 /* Create a GetParameter object with the parameters of the content to retrieve */
 GetParameter gp = new GetParameter(c.getKey());   // Lets look for content by key
@@ -69,7 +67,7 @@ List<KadContent> conte = kad2.get(gp, 1);
 
 **Saving and Retrieving a Node State**
 
-Test: https://github.com/JoshuaKissoon/Kademlia/blob/master/src/kademlia/tests/SaveStateTest.java
+Test: https://github.com/ChronosX88/KademliaDHT/blob/master/src/main/java/io/github/chronosx88/kademliadht/simulations/SaveStateTest.java
 
 You may want to save the Node state when your application is shut down and Retrieve the Node state on startup to remove the need of rebuilding the Node State (Routing Table, DHT Content Entries, etc). Lets look at how we do this.
 
@@ -85,12 +83,13 @@ kad1.shutdown();
  * This is done by simply building the Kademlia instance by calling .loadFromFile()
  * and passing in the instance Owner name as a parameter
  */
- Kademlia kad1Reloaded = Kademlia.loadFromFile("OwnerName1");
+ JKademliaNode kad1Reloaded = JKademliaNode.loadFromFile("OwnerName1");
 ```
 
-For more information on using Kademlia, check the tests at: https://github.com/JoshuaKissoon/Kademlia/tree/master/src/kademlia/tests
+For more information on using Kademlia, check the tests at: https://github.com/ChronosX88/KademliaDHT/tree/master/src/main/java/io/github/chronosx88/kademliadht/simulations
 
 
 Usage in a Real Project
 -----------------------
-I am currently using this implementation of Kademlia in developing a Distributed Online Social Network Architecture, you can look at that project at https://github.com/JoshuaKissoon/DOSNA for more ideas on using Kademlia.
+* [Distributed Online Social Network Architecture](https://github.com/JoshuaKissoon/DOSNA)
+* [Influence](https://github.com/ChronosX88/Influence-android) - decentralized messenger.
