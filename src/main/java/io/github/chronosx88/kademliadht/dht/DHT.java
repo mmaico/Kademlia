@@ -223,7 +223,7 @@ public class DHT implements KademliaDHT
          *
          * The name of the file containing the content is the hash of this content
          */
-        String folderName = key.hexRepresentation().substring(0, 2);
+        String folderName = key.stringRepresentation().substring(0, 2);
         File contentStorageFolder = new File(this.config.getNodeDataFolder(ownerId) + File.separator + folderName);
 
         /* Create the content folder if it doesn't exist */

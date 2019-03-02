@@ -5,17 +5,17 @@
  */
 package io.github.chronosx88.kademliadht.node;
 
+import io.github.chronosx88.kademliadht.message.Streamable;
+
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.Arrays;
+import java.util.Base64;
 import java.util.BitSet;
 import java.util.Random;
-import io.github.chronosx88.kademliadht.message.Streamable;
-
-import javax.xml.bind.DatatypeConverter;
 
 public class KademliaId implements Streamable, Serializable
 {
@@ -30,7 +30,7 @@ public class KademliaId implements Streamable, Serializable
      */
     public KademliaId(String data)
     {
-        keyBytes = DatatypeConverter.parseHexBinary(data);
+        keyBytes = Base64.getDecoder().decode(data);
         if (keyBytes.length != ID_LENGTH / 8)
         {
             throw new IllegalArgumentException("Specified Data need to be " + (ID_LENGTH / 8) + " characters long.");
@@ -249,16 +249,16 @@ public class KademliaId implements Streamable, Serializable
         this.keyBytes = input;
     }
 
-    public String hexRepresentation()
+    public String stringRepresentation()
     {
-        /* Returns the hex format of this NodeId */
-        return DatatypeConverter.printHexBinary(this.keyBytes);
+        /* Returns the base64 format of this NodeId */
+        return Base64.getEncoder().encodeToString(this.keyBytes);
     }
 
     @Override
     public String toString()
     {
-        return this.hexRepresentation();
+        return this.stringRepresentation();
     }
 
 }
