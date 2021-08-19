@@ -6,16 +6,13 @@ package io.github.chronosx88.kademliadht.exceptions;
  * @author Joshua Kissoon
  * @created 20140322
  */
-public class ContentNotFoundException extends Exception
-{
+public class ContentNotFoundException extends Exception {
 
-    public ContentNotFoundException()
-    {
+    public ContentNotFoundException() {
         super();
     }
 
-    public ContentNotFoundException(String message)
-    {
+    public ContentNotFoundException(String message) {
         super(message);
     }
 }

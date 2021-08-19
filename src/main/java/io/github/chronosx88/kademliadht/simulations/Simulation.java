@@ -6,8 +6,7 @@ package io.github.chronosx88.kademliadht.simulations;
  * @author Joshua Kissoon
  * @since
  */
-public interface Simulation
-{
+public interface Simulation {
 
     /**
      * Calling this method runs the simulation

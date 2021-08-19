@@ -1,8 +1,9 @@
 package io.github.chronosx88.kademliadht.simulations;
 
-import java.io.IOException;
 import io.github.chronosx88.kademliadht.JKademliaNode;
 import io.github.chronosx88.kademliadht.node.KademliaId;
+
+import java.io.IOException;
 
 /**
  * Testing connecting 2 nodes to each other
@@ -10,13 +11,10 @@ import io.github.chronosx88.kademliadht.node.KademliaId;
  * @author Joshua Kissoon
  * @created 20140219
  */
-public class NodeConnectionTest
-{
+public class NodeConnectionTest {
 
-    public static void main(String[] args)
-    {
-        try
-        {
+    public static void main(String[] args) {
+        try {
             /* Setting up 2 Kad networks */
             JKademliaNode kad1 = new JKademliaNode("JoshuaK", new KademliaId("ASF45678947584567467"), 7574);
             System.out.println("Created Node Kad 1: " + kad1.getNode().getNodeId());
@@ -61,9 +59,7 @@ public class NodeConnectionTest
             System.out.println(kad3.getRoutingTable());
             System.out.println("\n\nKad 4: " + kad4.getNode().getNodeId() + " Routing Table: ");
             System.out.println(kad4.getRoutingTable());
-        }
-        catch (IOException e)
-        {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
