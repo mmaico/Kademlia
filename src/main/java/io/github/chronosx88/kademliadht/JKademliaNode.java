@@ -103,7 +103,7 @@ public class JKademliaNode implements KademliaNode {
     public JKademliaNode(String ownerId, KademliaId defaultId, int udpPort) throws IOException {
         this(
                 ownerId,
-                new Node(defaultId, InetAddress.getLocalHost(), udpPort),
+                new Node(ownerId,defaultId, InetAddress.getLocalHost(), udpPort),
                 udpPort,
                 new DefaultConfiguration()
         );

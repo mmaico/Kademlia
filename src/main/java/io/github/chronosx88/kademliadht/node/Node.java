@@ -22,12 +22,22 @@ public class Node implements Streamable, Serializable {
     private KademliaId nodeId;
     private InetAddress inetAddress;
     private int port;
+    private final String name;
 
     public Node(KademliaId nid, InetAddress ip, int port) {
         this.nodeId = nid;
         this.inetAddress = ip;
         this.port = port;
         this.strRep = this.nodeId.toString();
+        this.name = "not informed";
+    }
+
+    public Node(String name, KademliaId nid, InetAddress ip, int port) {
+        this.nodeId = nid;
+        this.inetAddress = ip;
+        this.port = port;
+        this.strRep = this.nodeId.toString();
+        this.name = name;
     }
 
     /**
@@ -39,6 +49,7 @@ public class Node implements Streamable, Serializable {
     public Node(DataInputStream in) throws IOException {
         this.fromStream(in);
         this.strRep = this.nodeId.toString();
+        this.name = "not informed";
     }
 
     /**
@@ -94,6 +105,10 @@ public class Node implements Streamable, Serializable {
 
         /* Read in the port */
         this.port = in.readInt();
+    }
+
+    public String getName() {
+        return name;
     }
 
     @Override

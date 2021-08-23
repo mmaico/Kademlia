@@ -61,6 +61,7 @@ public class KadServer {
         this.messageFactory = mFactory;
         this.statistician = statistician;
 
+
         /* Start listening for incoming requests in a new thread */
         this.startListener();
     }
@@ -194,6 +195,8 @@ public class KadServer {
                         byte messCode = din.readByte();
 
                         Message msg = messageFactory.createMessage(messCode, din);
+                        System.out.println(this.localNode.getName() + " Received data from: " + packet.getPort());
+                        System.out.println(msg);
                         din.close();
 
                         /* Get a receiver for this message */
