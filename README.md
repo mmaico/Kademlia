@@ -110,8 +110,15 @@ Usage in a Real Project
    - Create tests for auto refresh
    - Create tests for "save state"
    - Create tests for routing table
-   - Remove the package simulations, after all tests are implemented 
-2 - Create implementation for the gRPC Kad Server
-3 - Adding levelDB for save state (content data and maybe routing table)
+   - Remove the package simulations, after all tests are implemented
+2 - Adding LOG4J
+3 - Create implementation for the gRPC Kad Server
+4 - Adding levelDB for save state (content data and maybe routing table)
 
+####JoshuaKissoon todo   
+- Improve multi-threading system (the gRPC implementation solve this problem)
+  -- I think server is slow in handling requests because the listen method runs in a single thread. 
+  --- Listen() method should create a new thread to handle every incoming request. 
+- KadStatistician (i'll make this improvement and add log4j)
+  -- Let the statistician keep track of failed get requests!
 
