@@ -1,7 +1,7 @@
 plugins {
     id 'java-library'
-    id 'maven'
     id 'signing'
+    id 'groovy'
 }
 
 group 'io.github.chronosx88'
@@ -33,57 +33,6 @@ signing {
     sign configurations.archives
 }
 
-uploadArchives {
-    repositories {
-        mavenDeployer {
-            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
-
-//            repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
-//                authentication(userName: username, password: password)
-//            }
-
-//            snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
-//                authentication(userName: username, password: password)
-//            }
-
-            pom.project {
-                name 'KademliaDHT'
-                packaging 'jar'
-                description 'KademliaDHT implementation in Java'
-                url 'https://github.com/ChronosX88/KademliaDHT'
-
-                scm {
-                    connection 'scm:git:git://github.com/ChronosX88/KademliaDHT.git'
-                    developerConnection 'scm:git:git@github.com:ChronosX88/KademliaDHT.git'
-                    url 'https://github.com/ChronosX88/KademliaDHT'
-                }
-
-                licenses {
-                    license {
-                        name 'The MIT License (MIT)'
-                        url 'https://opensource.org/licenses/MIT'
-                        distribution repository
-                    }
-                }
-
-                developers {
-                    developer {
-                        id 'JoshuaKissoon'
-                        name 'Joshua Kissoon'
-                        email 'JoshuaKissoon@gmail.com'
-                    }
-                    developer {
-                        id 'ChronosX88'
-                        name 'ChronosX88'
-                        email 'chronosx88@gmail.com'
-                    }
-                }
-            }
-        }
-    }
-}
-
-
 sourceCompatibility = 1.8
 
 repositories {
@@ -92,4 +41,8 @@ repositories {
 
 dependencies {
     implementation 'com.google.code.gson:gson:2.8.5'
+
+    // Spock Framework
+    implementation group: 'org.codehaus.groovy', name: 'groovy-all', version: '2.5.14'
+    testImplementation group: 'org.spockframework', name: 'spock-core', version: '2.0-groovy-2.5'
 }
