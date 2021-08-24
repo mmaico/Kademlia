@@ -1,25 +1,9 @@
 plugins {
     id 'java-library'
-    id 'signing'
-    id 'groovy'
 }
 
 group 'io.github.chronosx88'
 version '1.0'
-
-task javadocJar(type: Jar) {
-    classifier = 'javadoc'
-    from javadoc
-}
-
-task sourcesJar(type: Jar) {
-    classifier = 'sources'
-    from sourceSets.main.allSource
-}
-
-artifacts {
-    archives javadocJar, sourcesJar
-}
 
 if (JavaVersion.current().isJava8Compatible()) {
     allprojects {
@@ -29,20 +13,19 @@ if (JavaVersion.current().isJava8Compatible()) {
     }
 }
 
-signing {
-    sign configurations.archives
-}
-
 sourceCompatibility = 1.8
 
 repositories {
+    jcenter()
     mavenCentral()
+    maven { url 'https://jitpack.io' }
 }
 
 dependencies {
     implementation 'com.google.code.gson:gson:2.8.5'
 
-    // Spock Framework
-    implementation group: 'org.codehaus.groovy', name: 'groovy-all', version: '2.5.14'
-    testImplementation group: 'org.spockframework', name: 'spock-core', version: '2.0-groovy-2.5'
+    //Tests with Junit 5
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.7.2'
+    testImplementation group: 'org.junit.platform', name: 'junit-platform-runner', version: '1.7.1'
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.7.2'
 }
