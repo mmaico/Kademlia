@@ -6,6 +6,8 @@ import io.github.chronosx88.kademliadht.dht.KadContent;
 import io.github.chronosx88.kademliadht.dht.KademliaDHT;
 import io.github.chronosx88.kademliadht.exceptions.ContentNotFoundException;
 import io.github.chronosx88.kademliadht.exceptions.RoutingException;
+import io.github.chronosx88.kademliadht.network.server.KadServer;
+import io.github.chronosx88.kademliadht.network.server.NativeKadServer;
 import io.github.chronosx88.kademliadht.node.Node;
 import io.github.chronosx88.kademliadht.routing.KademliaRoutingTable;
 

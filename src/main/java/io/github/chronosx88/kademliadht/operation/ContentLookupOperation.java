@@ -2,7 +2,8 @@ package io.github.chronosx88.kademliadht.operation;
 
 import io.github.chronosx88.kademliadht.JKademliaNode;
 import io.github.chronosx88.kademliadht.KadConfiguration;
-import io.github.chronosx88.kademliadht.KadServer;
+import io.github.chronosx88.kademliadht.network.server.KadServer;
+import io.github.chronosx88.kademliadht.network.server.NativeKadServer;
 import io.github.chronosx88.kademliadht.dht.GetParameter;
 import io.github.chronosx88.kademliadht.dht.JKademliaStorageEntry;
 import io.github.chronosx88.kademliadht.exceptions.ContentNotFoundException;

@@ -1,6 +1,6 @@
 package io.github.chronosx88.kademliadht.message;
 
-import io.github.chronosx88.kademliadht.KadServer;
+import io.github.chronosx88.kademliadht.network.server.NativeKadServer;
 import io.github.chronosx88.kademliadht.KademliaNode;
 import io.github.chronosx88.kademliadht.dht.KademliaDHT;
 
@@ -14,11 +14,11 @@ import java.io.IOException;
  */
 public class StoreContentReceiver implements Receiver {
 
-    private final KadServer server;
+    private final NativeKadServer server;
     private final KademliaNode localNode;
     private final KademliaDHT dht;
 
-    public StoreContentReceiver(KadServer server, KademliaNode localNode, KademliaDHT dht) {
+    public StoreContentReceiver(NativeKadServer server, KademliaNode localNode, KademliaDHT dht) {
         this.server = server;
         this.localNode = localNode;
         this.dht = dht;

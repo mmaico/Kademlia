@@ -7,7 +7,8 @@
  */
 package io.github.chronosx88.kademliadht.operation;
 
-import io.github.chronosx88.kademliadht.KadServer;
+import io.github.chronosx88.kademliadht.network.server.KadServer;
+import io.github.chronosx88.kademliadht.network.server.NativeKadServer;
 import io.github.chronosx88.kademliadht.exceptions.RoutingException;
 import io.github.chronosx88.kademliadht.node.Node;
 

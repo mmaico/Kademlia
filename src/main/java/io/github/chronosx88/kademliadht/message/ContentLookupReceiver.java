@@ -1,7 +1,7 @@
 package io.github.chronosx88.kademliadht.message;
 
 import io.github.chronosx88.kademliadht.KadConfiguration;
-import io.github.chronosx88.kademliadht.KadServer;
+import io.github.chronosx88.kademliadht.network.server.NativeKadServer;
 import io.github.chronosx88.kademliadht.KademliaNode;
 import io.github.chronosx88.kademliadht.dht.KademliaDHT;
 
@@ -17,12 +17,12 @@ import java.util.NoSuchElementException;
  */
 public class ContentLookupReceiver implements Receiver {
 
-    private final KadServer server;
+    private final NativeKadServer server;
     private final KademliaNode localNode;
     private final KademliaDHT dht;
     private final KadConfiguration config;
 
-    public ContentLookupReceiver(KadServer server, KademliaNode localNode, KademliaDHT dht, KadConfiguration config) {
+    public ContentLookupReceiver(NativeKadServer server, KademliaNode localNode, KademliaDHT dht, KadConfiguration config) {
         this.server = server;
         this.localNode = localNode;
         this.dht = dht;

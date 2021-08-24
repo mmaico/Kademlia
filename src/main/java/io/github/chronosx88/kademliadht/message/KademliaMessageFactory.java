@@ -1,6 +1,6 @@
 package io.github.chronosx88.kademliadht.message;
 
-import io.github.chronosx88.kademliadht.KadServer;
+import io.github.chronosx88.kademliadht.network.server.NativeKadServer;
 
 import java.io.DataInputStream;
 import java.io.IOException;
@@ -30,5 +30,5 @@ public interface KademliaMessageFactory {
      * @param server
      * @return A receiver
      */
-    public Receiver createReceiver(byte code, KadServer server);
+    public Receiver createReceiver(byte code, NativeKadServer server);
 }

@@ -1,5 +1,7 @@
-package io.github.chronosx88.kademliadht;
+package io.github.chronosx88.kademliadht.network.server;
 
+import io.github.chronosx88.kademliadht.KadConfiguration;
+import io.github.chronosx88.kademliadht.KadStatistician;
 import io.github.chronosx88.kademliadht.exceptions.KadServerDownException;
 import io.github.chronosx88.kademliadht.message.KademliaMessageFactory;
 import io.github.chronosx88.kademliadht.message.Message;
@@ -18,7 +20,7 @@ import java.util.*;
  * @author Joshua Kissoon
  * @created 20140215
  */
-public class KadServer {
+public class NativeKadServer implements KadServer {
 
     /* Maximum size of a Datagram Packet */
     private static final int DATAGRAM_BUFFER_SIZE = 64 * 1024;      // 64KB
@@ -54,7 +56,7 @@ public class KadServer {
      * @param statistician A statistician to manage the server statistics
      * @throws SocketException
      */
-    public KadServer(int udpPort, KademliaMessageFactory mFactory, Node localNode, KadConfiguration config, KadStatistician statistician) throws SocketException {
+    public NativeKadServer(int udpPort, KademliaMessageFactory mFactory, Node localNode, KadConfiguration config, KadStatistician statistician) throws SocketException {
         this.config = config;
         this.socket = new DatagramSocket(udpPort);
         this.localNode = localNode;
@@ -70,12 +72,7 @@ public class KadServer {
      * Starts the listener to listen for incoming messages
      */
     private void startListener() {
-        new Thread() {
-            @Override
-            public void run() {
-                listen();
-            }
-        }.start();
+        new Thread(() -> listen()).start();
     }
 
     /**
@@ -280,7 +277,7 @@ public class KadServer {
 
         @Override
         public void run() {
-            if (!KadServer.this.isRunning) {
+            if (!NativeKadServer.this.isRunning) {
                 return;
             }
 

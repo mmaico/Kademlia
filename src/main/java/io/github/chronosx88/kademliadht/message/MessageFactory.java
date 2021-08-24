@@ -1,7 +1,7 @@
 package io.github.chronosx88.kademliadht.message;
 
 import io.github.chronosx88.kademliadht.KadConfiguration;
-import io.github.chronosx88.kademliadht.KadServer;
+import io.github.chronosx88.kademliadht.network.server.NativeKadServer;
 import io.github.chronosx88.kademliadht.KademliaNode;
 import io.github.chronosx88.kademliadht.dht.KademliaDHT;
 
@@ -53,7 +53,7 @@ public class MessageFactory implements KademliaMessageFactory {
     }
 
     @Override
-    public Receiver createReceiver(byte code, KadServer server) {
+    public Receiver createReceiver(byte code, NativeKadServer server) {
         switch (code) {
             case ConnectMessage.CODE:
                 return new ConnectReceiver(server, this.localNode);

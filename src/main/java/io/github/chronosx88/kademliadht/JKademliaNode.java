@@ -4,6 +4,8 @@ import io.github.chronosx88.kademliadht.dht.*;
 import io.github.chronosx88.kademliadht.exceptions.ContentNotFoundException;
 import io.github.chronosx88.kademliadht.exceptions.RoutingException;
 import io.github.chronosx88.kademliadht.message.MessageFactory;
+import io.github.chronosx88.kademliadht.network.server.KadServer;
+import io.github.chronosx88.kademliadht.network.server.NativeKadServer;
 import io.github.chronosx88.kademliadht.node.KademliaId;
 import io.github.chronosx88.kademliadht.node.Node;
 import io.github.chronosx88.kademliadht.operation.*;
@@ -75,7 +77,7 @@ public class JKademliaNode implements KademliaNode {
         this.config = config;
         this.routingTable = routingTable;
         this.messageFactory = new MessageFactory(this, this.dht, this.config);
-        this.server = new KadServer(udpPort, this.messageFactory, this.localNode, this.config, this.statistician);
+        this.server = new NativeKadServer(udpPort, this.messageFactory, this.localNode, this.config, this.statistician);
         this.startRefreshOperation();
     }
 

@@ -1,7 +1,7 @@
 package io.github.chronosx88.kademliadht.message;
 
 import io.github.chronosx88.kademliadht.KadConfiguration;
-import io.github.chronosx88.kademliadht.KadServer;
+import io.github.chronosx88.kademliadht.network.server.NativeKadServer;
 import io.github.chronosx88.kademliadht.KademliaNode;
 import io.github.chronosx88.kademliadht.node.Node;
 
@@ -16,11 +16,11 @@ import java.util.List;
  */
 public class NodeLookupReceiver implements Receiver {
 
-    private final KadServer server;
+    private final NativeKadServer server;
     private final KademliaNode localNode;
     private final KadConfiguration config;
 
-    public NodeLookupReceiver(KadServer server, KademliaNode local, KadConfiguration config) {
+    public NodeLookupReceiver(NativeKadServer server, KademliaNode local, KadConfiguration config) {
         this.server = server;
         this.localNode = local;
         this.config = config;
