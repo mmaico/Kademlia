@@ -100,3 +100,18 @@ Usage in a Real Project
 
 * [Distributed Online Social Network Architecture](https://github.com/JoshuaKissoon/DOSNA)
 * [Influence](https://github.com/ChronosX88/Influence-android) - decentralized messenger.
+
+##Next steps
+1 - Create automated tests for the features below  
+   - Create tests for node connections
+   - Create tests for "sending content"
+   - Create tests for refresh operation
+   - Create tests for content updating
+   - Create tests for auto refresh
+   - Create tests for "save state"
+   - Create tests for routing table
+   - Remove the package simulations, after all tests are implemented 
+2 - Create implementation for the gRPC Kad Server
+3 - Adding levelDB for save state (content data and maybe routing table)
+
+
