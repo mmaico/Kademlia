@@ -1,0 +1,36 @@
+[
+  {
+    "scenario": "result expected for JoshuaK node",
+    "json": [
+      {
+        "strRep":"6kMWPnij63TcguaCvD326i+8Qi4\u003d",
+        "inetAddress":"127.0.0.1",
+        "port":7574,
+        "name":"JoshuaK"
+      },
+      {
+        "strRep":"3qT03tT+j/KfPrG/4O/vqH9Adtc\u003d",
+        "inetAddress":"127.0.0.1",
+        "port":7572,
+        "name":"Crystal"
+      }
+    ]
+  },
+  {
+    "scenario": "result expected for Crystal node",
+    "json": [
+      {
+        "strRep": "6kMWPnij63TcguaCvD326i+8Qi4\u003d",
+        "inetAddress": "127.0.0.1",
+        "port": 7574,
+        "name": "JoshuaK"
+      },
+      {
+        "strRep": "3qT03tT+j/KfPrG/4O/vqH9Adtc\u003d",
+        "inetAddress": "127.0.0.1",
+        "port": 7572,
+        "name": "Crystal"
+      }
+    ]
+  }
+]

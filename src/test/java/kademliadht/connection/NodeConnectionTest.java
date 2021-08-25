@@ -1,44 +1,42 @@
 package kademliadht.connection;
 
-import infratest.BDD;
+import infratest.BaseTest;
+import infratest.JsonHelper;
 import kademliadht.JKademliaNode;
 import kademliadht.node.KademliaId;
-import kademliadht.node.Node;
+import org.json.JSONException;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.platform.runner.JUnitPlatform;
-import org.junit.runner.RunWith;
 
 import java.io.IOException;
-import java.util.List;
 
 import static infratest.BDD.*;
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.containsInAnyOrder;
-import static org.hamcrest.Matchers.hasProperty;
+import static infratest.JsonHelper.toJson;
+import static org.skyscreamer.jsonassert.JSONAssert.assertEquals;
+import static org.skyscreamer.jsonassert.JSONCompareMode.STRICT;
 
 
-public class NodeConnectionTest {
+public class NodeConnectionTest extends BaseTest {
 
+    @BeforeAll
+    public static void setUp() throws IOException {
+        scenarioLoader.load("connection/node-connection-scenarios.json");
+    }
+
+    @DisplayName("Should connect one node to another")
     @Test
-    public void shouldConnectOneNodeToAnother() throws IOException {
+    public void shouldConnectOneNodeToAnother() throws IOException, JSONException {
         Given("two nodes up");
-            JKademliaNode joshuaK = new JKademliaNode("JoshuaK", new KademliaId(), 7574);
-            JKademliaNode crystal = new JKademliaNode("Crystal", new KademliaId(), 7572);
+            JKademliaNode joshuaK = new JKademliaNode("JoshuaK", new KademliaId("6kMWPnij63TcguaCvD326i+8Qi4="), 7574);
+            JKademliaNode crystal = new JKademliaNode("Crystal", new KademliaId("3qT03tT+j/KfPrG/4O/vqH9Adtc="), 7572);
         When("connecting JoshuaK  and Crystal");
             joshuaK.bootstrap(crystal.getNode());
         Then("the routing table of JoshuaK should have the Crystal node");
-            List<Node> joshuaKNodes = joshuaK.getRoutingTable().getAllNodes();
-            assertThat(joshuaKNodes, containsInAnyOrder(
-                hasProperty("name", is("JoshuaK")),
-                hasProperty("name", is("Crystal"))
-            ));
-
+            String joshuaKExpected = s("result expected for JoshuaK node");
+            assertEquals(joshuaKExpected, toJson(joshuaK.getRoutingTable().getAllNodes()), STRICT);
         And("the routing table of Crystal should have the JoshuaK node");
-            List<Node> crystalNodes = joshuaK.getRoutingTable().getAllNodes();
-            assertThat(crystalNodes, containsInAnyOrder(
-                hasProperty("name", is("Crystal")),
-                hasProperty("name", is("JoshuaK"))
-            ));
+            String crystalExpected = s("result expected for Crystal node");
+            assertEquals(crystalExpected, toJson(joshuaK.getRoutingTable().getAllNodes()), STRICT);
     }
 }
