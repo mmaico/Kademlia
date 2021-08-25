@@ -51,37 +51,6 @@ public class NodeConnectionTest {
 
             System.out.println("Connecting Kad 4 and Kad 2");
             kad4.bootstrap(kad2.getNode());
-            Thread.sleep(5000);
-            System.out.println("KBucket of: " + kad1.getNode().getName());
-            Arrays.stream(kad1.getRoutingTable().getBuckets()).forEach(kademliaBucket -> {
-                kademliaBucket.getContacts().forEach(contact -> {
-                    System.out.println("Contact node: " + contact.getNode().getName());
-                });
-
-            });
-
-            System.out.println("KBucket of: " + kad2.getNode().getName());
-            Arrays.stream(kad2.getRoutingTable().getBuckets()).forEach(kademliaBucket -> {
-                kademliaBucket.getContacts().forEach(contact -> {
-                    System.out.println("Contact node: " + contact.getNode().getName());
-                });
-
-            });
-
-            System.out.println("KBucket of: " + kad3.getNode().getName());
-            Arrays.stream(kad3.getRoutingTable().getBuckets()).forEach(kademliaBucket -> {
-                kademliaBucket.getContacts().forEach(contact -> {
-                    System.out.println("Contact node: " + contact.getNode().getName());
-                });
-            });
-
-            System.out.println("KBucket of: " + kad4.getNode().getName());
-            Arrays.stream(kad4.getRoutingTable().getBuckets()).forEach(kademliaBucket -> {
-                kademliaBucket.getContacts().forEach(contact -> {
-                    System.out.println("Contact node: " + contact.getNode().getName());
-                });
-            });
-
 
             System.out.println("\n\nKad 1: " + kad1.getNode().getNodeId() + " Routing Table: ");
             System.out.println(kad1.getRoutingTable());
@@ -91,7 +60,7 @@ public class NodeConnectionTest {
             System.out.println(kad3.getRoutingTable());
             System.out.println("\n\nKad 4: " + kad4.getNode().getNodeId() + " Routing Table: ");
             System.out.println(kad4.getRoutingTable());
-        } catch (IOException | InterruptedException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
