@@ -30,13 +30,11 @@ public class NodeConnectionTest extends BaseTest {
         Given("two nodes up");
             JKademliaNode joshuaK = new JKademliaNode("JoshuaK", new KademliaId("6kMWPnij63TcguaCvD326i+8Qi4="), 7574);
             JKademliaNode crystal = new JKademliaNode("Crystal", new KademliaId("3qT03tT+j/KfPrG/4O/vqH9Adtc="), 7572);
-        When("connecting JoshuaK  and Crystal");
+        When("connecting JoshuaK  to Crystal");
             joshuaK.bootstrap(crystal.getNode());
         Then("the routing table of JoshuaK should have the Crystal node");
-            String joshuaKExpected = s("result expected for JoshuaK node");
-            assertEquals(joshuaKExpected, toJson(joshuaK.getRoutingTable().getAllNodes()), STRICT);
+            assertEquals(s("result expected for JoshuaK node"), toJson(joshuaK.getRoutingTable().getAllNodes()), STRICT);
         And("the routing table of Crystal should have the JoshuaK node");
-            String crystalExpected = s("result expected for Crystal node");
-            assertEquals(crystalExpected, toJson(joshuaK.getRoutingTable().getAllNodes()), STRICT);
+            assertEquals(s("result expected for Crystal node"), toJson(joshuaK.getRoutingTable().getAllNodes()), STRICT);
     }
 }
