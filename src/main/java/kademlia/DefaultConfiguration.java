@@ -29,49 +29,49 @@ public class DefaultConfiguration implements KadConfiguration
 
     }
 
-    @Override
+   
     public long restoreInterval()
     {
         return RESTORE_INTERVAL;
     }
 
-    @Override
+   
     public long responseTimeout()
     {
         return RESPONSE_TIMEOUT;
     }
 
-    @Override
+   
     public long operationTimeout()
     {
         return OPERATION_TIMEOUT;
     }
 
-    @Override
+   
     public int maxConcurrentMessagesTransiting()
     {
         return CONCURRENCY;
     }
 
-    @Override
+   
     public int k()
     {
         return K;
     }
 
-    @Override
+   
     public int replacementCacheSize()
     {
         return RCSIZE;
     }
 
-    @Override
+   
     public int stale()
     {
         return STALE;
     }
 
-    @Override
+   
     public String getNodeDataFolder(String ownerId)
     {
         /* Setup the main storage folder if it doesn't exist */
@@ -93,7 +93,7 @@ public class DefaultConfiguration implements KadConfiguration
         return ownerFolder.toString();
     }
 
-    @Override
+   
     public boolean isTesting()
     {
         return IS_TESTING;

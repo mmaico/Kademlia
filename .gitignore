@@ -1,2 +1,6 @@
 /dist/
 /build/
+.idea/
+.pom.xml.swp
+target/
+
