@@ -38,7 +38,7 @@ be in the same network.
 
 **Connecting Nodes**
 
-Test: https://github.com/ChronosX88/KademliaDHT/blob/master/src/main/java/io/github/chronosx88/kademliadht/simulations/NodeConnectionTest.java
+Test: https://github.com/ChronosX88/KademliaDHT/blob/master/src/main/java/io/github/chronosx88/kademlia/simulations/NodeConnectionTest.java
 
 ```Java
 kad2.bootstrap(kad1.getNode());   // Bootstrap kad2 by using kad1 as the main network node
@@ -46,7 +46,7 @@ kad2.bootstrap(kad1.getNode());   // Bootstrap kad2 by using kad1 as the main ne
 
 **Storing Content**
 
-Test: https://github.com/ChronosX88/KademliaDHT/blob/master/src/main/java/io/github/chronosx88/kademliadht/simulations/ContentSendingTest.java
+Test: https://github.com/ChronosX88/KademliaDHT/blob/master/src/main/java/io/github/chronosx88/kademlia/simulations/ContentSendingTest.java
 
 ```Java
 /* Working example at: https://github.com/JoshuaKissoon/Kademlia/blob/master/src/kademlia/tests/ContentSendingTest.java */
@@ -57,7 +57,7 @@ kad2.put(c);    // Put the content on the network
 
 **Retrieving Content**
 
-Test: https://github.com/ChronosX88/KademliaDHT/blob/master/src/main/java/io/github/chronosx88/kademliadht/simulations/ContentSendingTest.java
+Test: https://github.com/ChronosX88/KademliaDHT/blob/master/src/main/java/io/github/chronosx88/kademlia/simulations/ContentSendingTest.java
 
 ```Java
 /* Create a GetParameter object with the parameters of the content to retrieve */
@@ -71,7 +71,7 @@ List<KadContent> conte = kad2.get(gp, 1);
 
 **Saving and Retrieving a Node State**
 
-Test: https://github.com/ChronosX88/KademliaDHT/blob/master/src/main/java/io/github/chronosx88/kademliadht/simulations/SaveStateTest.java
+Test: https://github.com/ChronosX88/KademliaDHT/blob/master/src/main/java/io/github/chronosx88/kademlia/simulations/SaveStateTest.java
 
 You may want to save the Node state when your application is shut down and Retrieve the Node state on startup to remove
 the need of rebuilding the Node State (Routing Table, DHT Content Entries, etc). Lets look at how we do this.
@@ -92,7 +92,7 @@ kad1.shutdown();
 ```
 
 For more information on using Kademlia, check the tests
-at: https://github.com/ChronosX88/KademliaDHT/tree/master/src/main/java/io/github/chronosx88/kademliadht/simulations
+at: https://github.com/ChronosX88/KademliaDHT/tree/master/src/main/java/io/github/chronosx88/kademlia/simulations
 
 
 Usage in a Real Project

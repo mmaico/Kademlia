@@ -7,7 +7,7 @@
     <groupId>dht.network</groupId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
-    <name>kademliadht</name>
+    <name>kademlia</name>
     <description>Kademlia DHT implementation</description>
 
     <dependencies>
