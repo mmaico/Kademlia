@@ -16,9 +16,8 @@ import java.io.IOException;
  * that classes implementing Streamble also provide a constructor of the form:
  * <p>
  * <code>Streamable(DataInput in) throws IOException;</code>
- * */
-public interface Streamable
-{
+ */
+public interface Streamable {
 
     /**
      * Writes the internal state of the Streamable object to the output stream
@@ -26,8 +25,7 @@ public interface Streamable
      * the {@link #fromStream} method.
      *
      * @param out
-     *
-     * @throws java.io.IOException
+     * @throws IOException
      */
     public void toStream(DataOutputStream out) throws IOException;
 
@@ -35,8 +33,7 @@ public interface Streamable
      * Reads the internal state of the Streamable object from the input stream.
      *
      * @param out
-     *
-     * @throws java.io.IOException
+     * @throws IOException
      */
     public void fromStream(DataInputStream out) throws IOException;
 }

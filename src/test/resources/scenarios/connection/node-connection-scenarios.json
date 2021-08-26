@@ -1,0 +1,88 @@
+[
+  {
+    "scenario": "result expected for JoshuaK node",
+    "json": [
+      {
+        "strRep":"6kMWPnij63TcguaCvD326i+8Qi4\u003d",
+        "inetAddress":"127.0.0.1",
+        "port":7574,
+        "name":"JoshuaK"
+      },
+      {
+        "strRep":"3qT03tT+j/KfPrG/4O/vqH9Adtc\u003d",
+        "inetAddress":"127.0.0.1",
+        "port":7572,
+        "name":"Crystal"
+      }
+    ]
+  },
+  {
+    "scenario": "result expected for Crystal node",
+    "json": [
+      {
+        "strRep": "6kMWPnij63TcguaCvD326i+8Qi4\u003d",
+        "inetAddress": "127.0.0.1",
+        "port": 7574,
+        "name": "JoshuaK"
+      },
+      {
+        "strRep": "3qT03tT+j/KfPrG/4O/vqH9Adtc\u003d",
+        "inetAddress": "127.0.0.1",
+        "port": 7572,
+        "name": "Crystal"
+      }
+    ]
+  },
+  {
+    "scenario": "The first node have 3 node contacts",
+    "json": [
+      {
+        "strRep": "2IaTRDsyk0erGmVFsOp1/zMflz8\u003d",
+        "inetAddress": "127.0.0.1",
+        "port": 7474,
+        "name": "FirstNode"
+      },
+      {
+        "strRep": "mgYLP+fjGQqaAedehBKFs+0ezkE\u003d",
+        "inetAddress": "127.0.0.1",
+        "port": 7472,
+        "name": "SecondNode"
+      },
+      {
+        "strRep": "LMYJwfbItVvOsO6UbuHEbD4Mfo0\u003d",
+        "inetAddress": "127.0.0.1",
+        "port": 7471,
+        "name": "not informed"
+      }
+    ]
+  },
+  {
+    "scenario": "The fourth node must have all contacts",
+    "json": [
+      {
+        "strRep": "kveaNUYeiKrPdi+Grt+JTfEVE5Y\u003d",
+        "inetAddress": "127.0.0.1",
+        "port": 6474,
+        "name": "FirstNode"
+      },
+      {
+        "strRep": "x70Apb9lQxCSzX8uwQsv51GT800\u003d",
+        "inetAddress": "127.0.0.1",
+        "port": 6472,
+        "name": "not informed"
+      },
+      {
+        "strRep": "FQ5R8HYdhymhHF9qL80zFu5vZoY\u003d",
+        "inetAddress": "127.0.0.1",
+        "port": 6471,
+        "name": "not informed"
+      },
+      {
+        "strRep": "UeYXRkWvMgKsL0QuLOIotuVE8vM\u003d",
+        "inetAddress": "127.0.0.1",
+        "port": 6470,
+        "name": "not informed"
+      }
+    ]
+  }
+]

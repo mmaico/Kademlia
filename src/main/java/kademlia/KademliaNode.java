@@ -1,26 +1,25 @@
 package kademlia;
 
-import java.io.IOException;
-import java.util.NoSuchElementException;
 import kademlia.dht.GetParameter;
 import kademlia.dht.JKademliaStorageEntry;
 import kademlia.dht.KadContent;
 import kademlia.dht.KademliaDHT;
-import kademlia.dht.KademliaStorageEntry;
 import kademlia.exceptions.ContentNotFoundException;
 import kademlia.exceptions.RoutingException;
+import kademlia.network.server.KadServer;
 import kademlia.node.Node;
 import kademlia.routing.KademliaRoutingTable;
+
+import java.io.IOException;
+import java.util.NoSuchElementException;
 
 /**
  * The main Kademlia Node on the network, this node manages everything for this local system.
  *
  * @author Joshua Kissoon
  * @since 20140523
- *
  */
-public interface KademliaNode
-{
+public interface KademliaNode {
 
     /**
      * Schedule the recurring refresh operation
@@ -56,11 +55,10 @@ public interface KademliaNode
      * Connect to an existing peer-to-peer network.
      *
      * @param n The known node in the peer-to-peer network
-     *
      * @throws RoutingException      If the bootstrap node could not be contacted
      * @throws IOException           If a network error occurred
      * @throws IllegalStateException If this object is closed
-     * */
+     */
     public void bootstrap(Node n) throws IOException, RoutingException;
 
     /**
@@ -68,11 +66,8 @@ public interface KademliaNode
      * This value is stored on K nodes on the network, or all nodes if there are > K total nodes in the network
      *
      * @param content The content to put onto the DHT
-     *
      * @return Integer How many nodes the content was stored on
-     *
-     * @throws java.io.IOException
-     *
+     * @throws IOException
      */
     public int put(KadContent content) throws IOException;
 
@@ -81,11 +76,8 @@ public interface KademliaNode
      * This value is stored on K nodes on the network, or all nodes if there are > K total nodes in the network
      *
      * @param entry The StorageEntry with the content to put onto the DHT
-     *
      * @return Integer How many nodes the content was stored on
-     *
-     * @throws java.io.IOException
-     *
+     * @throws IOException
      */
     public int put(JKademliaStorageEntry entry) throws IOException;
 
@@ -93,8 +85,7 @@ public interface KademliaNode
      * Store a content on the local node's DHT
      *
      * @param content The content to put on the DHT
-     *
-     * @throws java.io.IOException
+     * @throws IOException
      */
     public void putLocally(KadContent content) throws IOException;
 
@@ -102,18 +93,16 @@ public interface KademliaNode
      * Get some content stored on the DHT
      *
      * @param param The parameters used to search for the content
-     *
      * @return DHTContent The content
-     *
-     * @throws java.io.IOException
-     * @throws kademlia.exceptions.ContentNotFoundException
+     * @throws IOException
+     * @throws ContentNotFoundException
      */
     public JKademliaStorageEntry get(GetParameter param) throws NoSuchElementException, IOException, ContentNotFoundException;
 
     /**
      * Allow the user of the System to call refresh even out of the normal Kad refresh timing
      *
-     * @throws java.io.IOException
+     * @throws IOException
      */
     public void refresh() throws IOException;
 
@@ -131,7 +120,6 @@ public interface KademliaNode
      * Here we handle properly shutting down the Kademlia instance
      *
      * @param saveState Whether to save the application state or not
-     *
      * @throws java.io.FileNotFoundException
      */
     public void shutdown(final boolean saveState) throws IOException;

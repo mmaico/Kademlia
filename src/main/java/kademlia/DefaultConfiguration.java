@@ -5,10 +5,8 @@ import java.io.File;
 /**
  * A set of Kademlia configuration parameters. Default values are
  * supplied and can be changed by the application as necessary.
- *
  */
-public class DefaultConfiguration implements KadConfiguration
-{
+public class DefaultConfiguration implements KadConfiguration {
 
     private final static long RESTORE_INTERVAL = 60 * 1000; // in milliseconds
     private final static long RESPONSE_TIMEOUT = 2000;
@@ -18,74 +16,63 @@ public class DefaultConfiguration implements KadConfiguration
     private final static int RCSIZE = 3;
     private final static int STALE = 1;
     private final static String LOCAL_FOLDER = "kademlia";
-    
+
     private final static boolean IS_TESTING = true;
 
     /**
      * Default constructor to support Gson Serialization
      */
-    public DefaultConfiguration()
-    {
+    public DefaultConfiguration() {
 
     }
 
-   
-    public long restoreInterval()
-    {
+    @Override
+    public long restoreInterval() {
         return RESTORE_INTERVAL;
     }
 
-   
-    public long responseTimeout()
-    {
+    @Override
+    public long responseTimeout() {
         return RESPONSE_TIMEOUT;
     }
 
-   
-    public long operationTimeout()
-    {
+    @Override
+    public long operationTimeout() {
         return OPERATION_TIMEOUT;
     }
 
-   
-    public int maxConcurrentMessagesTransiting()
-    {
+    @Override
+    public int maxConcurrentMessagesTransiting() {
         return CONCURRENCY;
     }
 
-   
-    public int k()
-    {
+    @Override
+    public int k() {
         return K;
     }
 
-   
-    public int replacementCacheSize()
-    {
+    @Override
+    public int replacementCacheSize() {
         return RCSIZE;
     }
 
-   
-    public int stale()
-    {
+    @Override
+    public int stale() {
         return STALE;
     }
 
-   
-    public String getNodeDataFolder(String ownerId)
-    {
+    @Override
+    public String getNodeDataFolder(String ownerId) {
         /* Setup the main storage folder if it doesn't exist */
         String path = System.getProperty("user.home") + File.separator + DefaultConfiguration.LOCAL_FOLDER;
         File folder = new File(path);
-        if (!folder.isDirectory())
-        {
+        if (!folder.isDirectory()) {
             folder.mkdir();
         }
 
         /* Setup subfolder for this owner if it doesn't exist */
         File ownerFolder = new File(folder + File.separator + ownerId);
-        if (!ownerFolder.isDirectory())
-        {
+        if (!ownerFolder.isDirectory()) {
             ownerFolder.mkdir();
         }
 
@@ -93,9 +80,8 @@ public class DefaultConfiguration implements KadConfiguration
         return ownerFolder.toString();
     }
 
-   
-    public boolean isTesting()
-    {
+    @Override
+    public boolean isTesting() {
         return IS_TESTING;
     }
 }
