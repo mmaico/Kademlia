@@ -103,8 +103,8 @@ Usage in a Real Project
 
 ##Next steps
 1 - Create automated tests for the features below  
-   - Create tests for node connections
-   - Create tests for "sending content"
+   - Create tests for node connections   DONE
+   - Create tests for "sending content"  WORKING 
    - Create tests for refresh operation
    - Create tests for content updating
    - Create tests for auto refresh
